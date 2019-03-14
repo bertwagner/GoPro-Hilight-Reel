@@ -1,5 +1,9 @@
 MIT License
 
+Copyright for portions of pyHiLightExtractor are held by Nicolas Seibert for their work on pyHiLightExtractor under the MIT license: https://github.com/zeibou/pyHiLightExtractor.  All other copyrights for GoPro HiLight Reel are held by Bert Wagner, 2019 as described below.
+
+Copyright for portions of moviepy are held by Zulko for their work on moviepy under the MIT license: https://github.com/Zulko/moviepy.  All other copyrights for GoPro HiLight Reel are held by Bert Wagner, 2019 as described below.
+
 Copyright (c) 2019 Bert Wagner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
