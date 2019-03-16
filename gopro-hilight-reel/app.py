@@ -1,4 +1,5 @@
 import HiLightExtractor, CutCalculator, MovieCreator
+import os
 
 if __name__ == '__main__':
     # CONFIG
@@ -9,11 +10,14 @@ if __name__ == '__main__':
     output_height=1080
     
 
-    videos = HiLightExtractor.get_video_properties(video_folder_path)
+    #videos = HiLightExtractor.get_video_properties(video_folder_path)
     #print(videos)
-    videos = CutCalculator.CalculateCuts(videos, seconds_pre, seconds_post)
-    MovieCreator.EditVideo(videos,video_folder_path,output_height,output_width)
-    #UploadToYouTube()
+    #videos = CutCalculator.CalculateCuts(videos, seconds_pre, seconds_post)
+    #MovieCreator.EditVideo(videos,video_folder_path,output_height,output_width)
+
+    os.system('python e:\Documents\GitHub\GoPro-HiLight-Reel\gopro-hilight-reel\YouTubeUpload.py --file="e:\Documents\GitHub\GoPro-HiLight-Reel\gopro-hilight-reel\FinalEdit.mp4" \
+                       --title="Volleyball Match 2019-03-24" \
+                       --privacyStatus="unlisted"')
 
     
 

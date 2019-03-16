@@ -2,3 +2,5 @@
 .vscode
 tempCodeRunnerFile.py
 __pycache*
+client_secrets.json
+*oauth2.json
