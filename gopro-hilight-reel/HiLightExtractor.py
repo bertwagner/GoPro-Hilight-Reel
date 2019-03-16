@@ -12,8 +12,6 @@ class GoProVideo():
     hilight_markers: []
     cuts: []
 
-
-
 @dataclass
 class Atom:
     name: str

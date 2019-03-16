@@ -10,8 +10,6 @@ def EditVideo(videos,output_path,output_height,output_width):
             trimmed_clips.append(vid)
             trimmed_clips.append(color_clip)
 
-    
-
     #print(GoProVideos)
     final_video = concatenate_videoclips(trimmed_clips)
     final_video.write_videofile(output_path + '\FinalEdit.mp4',fps=60)

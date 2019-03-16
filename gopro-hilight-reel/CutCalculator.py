@@ -8,29 +8,30 @@ class CutMarkers():
     stop: int
 
 def CalculateCuts(videos,seconds_pre, seconds_post):
-    
+    milliseconds_pre = seconds_pre * 1000
+    milliseconds_post = seconds_post * 1000
+
     for video in videos:
         cuts = []
+        # If a hilight occurs right at the start or end of a video 
+        # and needs to be carried forward to then ext clip
+        milliseconds_pre_carryover = 0
+        milliseconds_post_carryover = 0
         for hilight in video.hilight_markers:
 
             # Error checking
-            pre = seconds_pre
-            post = seconds_post
-            if hilight+post > video.duration:
-                post = video.duration-hilight
+            delta_pre = milliseconds_pre
+            delta_post = milliseconds_post
 
-            cuts.append(CutMarkers(hilight-pre,hilight+post))
+            #If a hilight occurs early in the video
+            if hilight-delta_pre < 0:
+                delta_pre = hilight
+
+            #If a hilight occurs late in the video
+            if hilight+delta_post > video.duration:
+                delta_post = video.duration-hilight
+
+            cuts.append(CutMarkers(hilight-delta_pre,hilight+delta_post))
 
         video.cuts = cuts
     return videos
-
-
-    #         vid = VideoFileClip(video.path).subclip((hilight-seconds_pre)/1000,(hilight+post)/1000)
-    #         clips.append(vid)
-        
-
-    # #print(GoProVideos)
-    # final_video = concatenate_videoclips(clips)
-    # final_video.write_videofile('E:\Documents\GitHub\GoPro-HiLight-Reel\gopro-hilight-reel\edit'+video.name+'.mp4',fps=60)
-    
-
