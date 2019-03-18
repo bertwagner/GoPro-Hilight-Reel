@@ -8,7 +8,10 @@ def EditVideo(videos,output_path,output_height,output_width):
         for cut in video.cuts:
             vid = VideoFileClip(video.path).subclip(cut.start/1000.0,cut.stop/1000.0)
             trimmed_clips.append(vid)
-            trimmed_clips.append(color_clip)
+
+            # Don't add a flash after clips that carryover from one video to the next
+            if (cut.stop != video.duration)
+                trimmed_clips.append(color_clip)
 
     #print(GoProVideos)
     final_video = concatenate_videoclips(trimmed_clips)
