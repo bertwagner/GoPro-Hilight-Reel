@@ -21,9 +21,9 @@ def CalculateCuts(videos,seconds_pre, seconds_post):
 
         for hilight in video.hilight_markers:
             # If we had carryover from the previous clip
-            if milliseconds_post_carryover > 0:
-                cuts.append(CutMarkers(0,milliseconds_post_carryover))
-                milliseconds_post_carryover = 0
+            # if milliseconds_post_carryover > 0:
+            #     cuts.append(CutMarkers(0,milliseconds_post_carryover))
+            #     milliseconds_post_carryover = 0
 
             # Error checking
             delta_pre = milliseconds_pre
@@ -32,16 +32,15 @@ def CalculateCuts(videos,seconds_pre, seconds_post):
             #If a hilight occurs early in the video
             if hilight - delta_pre < 0:
                 delta_pre = hilight
-                milliseconds_pre_carryover = milliseconds_pre-delta_pre
-                #If we had carryover from the previous clip
-                videos[v-1].cuts.append(CutMarkers(previous_clip.duration-milliseconds_pre_carryover,milliseconds_pre_carryover))
-                
-                milliseconds_pre_carryover = 0
+            #     milliseconds_pre_carryover = milliseconds_pre-delta_pre
+            #     #If we had carryover from the previous clip
+            #     videos[v-1].cuts.append(CutMarkers(previous_clip.duration-milliseconds_pre_carryover,milliseconds_pre_carryover))
+            #     milliseconds_pre_carryover = 0
 
-            #If a hilight occurs late in the video
+            # #If a hilight occurs late in the video
             if hilight+delta_post > video.duration:
                 delta_post = video.duration-hilight
-                milliseconds_post_carryover = milliseconds_post - delta_post
+            #     milliseconds_post_carryover = milliseconds_post - delta_post
 
             cuts.append(CutMarkers(hilight-delta_pre,hilight+delta_post))
             previous_clip = video
