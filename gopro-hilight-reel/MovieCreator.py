@@ -10,7 +10,7 @@ def EditVideo(videos,output_path,output_height,output_width):
             trimmed_clips.append(vid)
 
             # Don't add a flash after clips that carryover from one video to the next
-            if (cut.stop != video.duration)
+            if (cut.stop != video.duration):
                 trimmed_clips.append(color_clip)
 
     #print(GoProVideos)
