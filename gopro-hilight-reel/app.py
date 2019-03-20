@@ -1,4 +1,6 @@
-import HiLightExtractor, CutCalculator, MovieCreator
+import HiLightExtractor
+import CutCalculator
+import MovieCreator
 import time
 import os
 
