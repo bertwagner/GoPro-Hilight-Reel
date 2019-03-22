@@ -7,8 +7,8 @@ import os
 # CONFIG
 video_folder_path = os.path.join(os.path.dirname(__file__),"VideoFiles")
 
-seconds_pre = 7
-seconds_post = 1
+seconds_pre = 6
+seconds_post = 0
 output_width=1920
 output_height=1080
 
