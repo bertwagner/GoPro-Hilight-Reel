@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+# Copied from https://github.com/youtube/api-samples/blob/master/python/update_video.py
 import http.client
 import httplib2
 import os
